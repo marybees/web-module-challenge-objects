@@ -26,7 +26,17 @@ and should return a number.
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
 
+burger.calculateDiscount = function(customerType) {
+  let discount = 0;
+  if (customerType === "student" || customerType === "teacher") {
+    discount = this.price - this.price*.25;
+  } else {
+    discount = this.price - this.price*.1
+  }
+  return(discount);
+}
 
+console.log(burger.calculateDiscount("public"));
 
 ///////////////Reviews (MVP)///////////////////
 
