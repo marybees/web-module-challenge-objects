@@ -95,7 +95,7 @@ For example, if getLastReview is invoked passing the reviews array it will retur
 
 function getLastReview(reviewsArray) {
   let lastReview = reviewsArray[reviewsArray.length-1];
-    return `${lastReview.name} gave the restaurant a ${lastReview.rating}, and their feedback was: ${lastReview.feedback}`;
+  return `${lastReview.name} gave the restaurant a ${lastReview.rating}, and their feedback was: ${lastReview.feedback}`;
 }
 
 console.log(getLastReview(reviews));
@@ -115,9 +115,19 @@ console.log(getLastReview(reviews));
     {name:"Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."}]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
-  }
+ function getReviewByRating(reviewsArray, reviewRating) {
+   let ratingArray = []
+    for (i = 0; i < reviewsArray.length; i++) {
+      let reviewRatingAtIndex = reviewsArray[i].rating;
+      reviewRatingAtIndex = Math.floor(reviewRatingAtIndex);
+      if (reviewRating === reviewRatingAtIndex) {
+        ratingArray.push(reviewsArray[i]);
+      } 
+    }
+    return ratingArray;
+  } 
+
+console.log(getReviewByRating(reviews, 4));
 
   
 /** STRETCH 2: Write a function called 'getLongestReview' that returns an array containing all reviews longer than 15 words. 
